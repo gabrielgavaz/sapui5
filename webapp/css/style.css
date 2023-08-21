@@ -1,0 +1,9 @@
+/* Enter your custom styles here */
+.circularIcon img {
+    width: 60px; 
+    height: 60px; 
+    border-radius: 50%;
+    overflow: hidden; 
+}
+
+

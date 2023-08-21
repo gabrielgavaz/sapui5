@@ -1,0 +1,55 @@
+<mvc:View controllerName="evento.eventoproyecto1.controller.Organizadores"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <Panel id="_IDGenPanel1" headerText="Organizadores">
+                <Label id="organizadorNombre"   text="Nombre" labelFor="organizadorInput" class="sapUiSmallMargin"></Label>
+                <Input id="organizadorInputNombre" value="" width="200px" class="sapUiSmallMarginEnd"></Input>
+
+                <Label id="organizadorApellido" text="Apellido" labelFor="organizadorInputApellido" class="sapUiSmallMargin"></Label>
+                <Input id="organizadorInputApellido" width="200px" class="sapUiSmallMarginEnd"></Input>
+
+                <Button id="btnFilter"
+                        text="Filtar"
+                        icon="sap-icon://filter"
+                        press="onFilter"
+                        class="sapUiSmallMarginEnd"
+                        />
+
+                <Button id="btnClearFilter"
+                        text="Limpiar Filtros"
+                        icon="sap-icon://clear-filter"
+                        press="onClearFilter"
+                        class="sapUiSmallMarginEnd"
+                        />
+            </Panel>
+
+            <Panel id="_IDGenPanel2" >
+                <List   id="listaOrganizadores" 
+                        headerText="Organizadores"
+                        class="sapUiResponsiveMargin"
+                        width="auto"
+                        items="{/organizadorSet}"
+                        noDataText="No se han encontrado organizadores"
+                        >
+                        <items>
+                            <ObjectListItem id="_IDGenObjectListItem1"
+                                            title="{Nombre} {Apellido}"
+                                            icon="{Avatar}"
+                                            class="circularIcon"
+                                            press="NavToOrganizador_Detail"
+                                            type="Navigation"
+                                            >
+                                            <ObjectAttribute   id="_IDGenObjectAttribute1" 
+                                                               text="{Correo}" />
+                            </ObjectListItem>
+                        </items>
+                        
+                
+                
+                </List>
+            </Panel>
+         </content>
+    </Page>
+</mvc:View>

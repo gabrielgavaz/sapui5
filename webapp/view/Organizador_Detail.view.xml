@@ -1,0 +1,119 @@
+<mvc:View controllerName="evento.eventoproyecto1.controller.Organizador_Detail"
+    xmlns:mvc="sap.ui.core.mvc"
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	xmlns:t="sap.ui.table"
+	xmlns:f="sap.ui.layout.form"
+	xmlns:tnt="sap.tnt"
+	height="100%">
+	<Page id="_IDGenPage1" title="Title" enableScrolling="true" class="sapUiResponsivePadding--header sapUiResponsivePadding--footer">
+		<content>
+			<VBox id="_IDGenVBox1" class="sapUiSmallMarginBottom">
+				<f:SimpleForm id="SimpleFormDisplay480"
+					maxContainerCols="2"
+					editable="false"
+					layout="ResponsiveGridLayout"
+					title="Address"
+					labelSpanL="4"
+					labelSpanM="4"
+					emptySpanL="0"
+					emptySpanM="0"
+					columnsL="2"
+					columnsM="2">
+					<f:content>
+						<c:Title id="_IDGenTitle1" text="Datos Personales" />
+						<Label id="_IDGenLabel1" text="Name" />
+						<Text id="_IDGenText1" text="{Nombre} {Apellido}" />
+						<Label id="_IDGenLabel2" text="Street/No." />
+						<Text id="_IDGenText2" text="{Correo}" />
+						<Label id="_IDGenLabel3"  text="ZIP Code/City" />
+						<Text id="_IDGenText3" text="{Telefono}" />
+						<c:Title id="_IDGenTitle2" text="Imagen" />
+						<Image id="_IDGenImage1" src="{Avatar}" width="20rem" height="20rem"></Image>
+					</f:content>
+				</f:SimpleForm>
+			</VBox>
+
+			
+
+			<tnt:ToolHeader id="_IDGenToolHeader1">
+				<Title id="_IDGenTitle3" text="Lista de eventos" level="H2" />
+
+				<ToolbarSpacer id="_IDGenToolbarSpacer1"/>
+				<Button id="_IDGenButton3" text="Añadir Evento" icon="sap-icon://add" press="onOpenFragmentCrearEvento" type="Emphasized">
+					<layoutData>
+						<OverflowToolbarLayoutData id="_IDGenOverflowToolbarLayoutData1" priority="NeverOverflow" />
+					</layoutData>
+				</Button>
+			</tnt:ToolHeader>
+			<List id="_IDGenList1" items="{eventoSet}" >
+				<CustomListItem id="_IDGenCustomListItem1">
+						<VBox id="_IDGenVBox2" class="sapUiResponsiveMargin">
+							
+
+							<!-- Nombre del evento -->
+							<VBox id="_IsDGenVBox3" class="sapUiResponsiveMargin">
+								<Label id="_IssDGenLabel5" text="Nombre del Evento:" class="boldText" />
+								<Text id="_IsDGenText7" text="{NombreEvento}" />
+							</VBox>
+
+							<VBox id="_IDGesnVBox3" class="sapUiResponsiveMargin">
+								<Label id="_IDGensLabel5" text="Nombre del salón:" class="boldText" />
+								<Text id="_IDGensText7" text="{NombreSalon}" />
+							</VBox>
+
+							<VBox id="_IDGenVBox3" class="sapUiResponsiveMargin">
+								<Label id="_IDGesnLabel5" text="Direccion:" class="boldText" />
+								<Text id="_IDGsensText7" text="{CalleSalon} {NumeroSalon}" />
+								<Text id="_IDGenText4" text="{FechaEvento}"></Text>
+							</VBox>
+
+							<VBox id="_IDGesnVcBox3" class="sapUiResponsiveMargin">
+								<Label id="_IDGecnsLabel5" text="Estado del Evento:" class="boldText" />
+								<ObjectStatus id="_IDGenObjectStatus1"
+									text="{path: 'EstadoEvento', formatter: '.formatter.formatEstado'}"
+									state="{path: 'EstadoEvento', formatter: '.formatter.getStateColor'}"
+								/>
+							</VBox>
+
+
+
+							<!-- Botones en la parte derecha -->
+							<HBox id="_IDGenHBox2" justifyContent="End">
+								<Button id="_IDGenButton1" icon="sap-icon://delete" type="Reject" class="sapUiSmallMarginEnd" press="onDeleteEvento" />
+								<Button id="_IDGenButton33" icon="sap-icon://write-new-document" iconFirst="false" type="Neutral" press="onOpenFragmentUpdateEvento" class="sapUiSmallMarginEnd" />
+								<Button id="_IDGenButton2" text="Ver Invitados" icon="sap-icon://action" iconFirst="false" type="Emphasized" press="onButton2Press" />
+							</HBox>
+						</VBox>
+					</CustomListItem>
+			</List>
+			
+			<!-- <Panel id="_IDGenPanel1">
+			   <headerToolbar>
+					<Toolbar >
+						<Label text="Eventos"/>
+						<ToolbarSpacer/>
+						<Button text="Agregar Evento" type="Emphasized"  press="onOpenFragmentCrearEvento"/>
+					</Toolbar>
+				</headerToolbar>
+				<List id="_IDGenList1"
+					items="{eventoSet}">
+						<ObjectListItem id="_IDGenObjectListItem1"
+							title="{NombreEvento}"
+							type="Navigation"
+							press="onListItemPress">
+						<firstStatus>
+								<ObjectStatus id="_IDGenObjectStatus1"
+									text="{path: 'EstadoEvento', formatter: '.formatter.formatEstado'}"
+									state="{path: 'EstadoEvento', formatter: '.formatter.getStateColor'}"
+								/>
+						</firstStatus>
+						<ObjectAttribute id="_IDGenObjectAttribute1" text="{CalleSalon} {NumeroSalon}" />
+						<ObjectAttribute id="_IDGenObjectAttribute2" text="{CiudadSalon}" />
+					</ObjectListItem>
+				</List>
+			</Panel> -->
+
+		</content>
+	</Page>
+</mvc:View>

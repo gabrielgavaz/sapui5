@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData">
+    <edmx:DataServices m:DataServiceVersion="2.0">
+        <Schema Namespace="ZGW_EVENTO_SRV" xml:lang="es" sap:schema-version="1" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+            <EntityType Name="organizador" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IdOrgevento"/>
+                </Key>
+                <Property Name="IdOrgevento" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Organizador  Evento" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nombre" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="NOMBRE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Apellido" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="NOMBRE" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Correo" Type="Edm.String" Nullable="false" MaxLength="100" sap:unicode="false" sap:label="CORREO" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Telefono" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="TELEFONO" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Avatar" Type="Edm.String" Nullable="false" MaxLength="200" sap:unicode="false" sap:label="Texto (200 c.)" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="eventoSet" Relationship="ZGW_EVENTO_SRV.orgTOeve" FromRole="FromRole_orgTOeve" ToRole="ToRole_orgTOeve"/>
+            </EntityType>
+            <EntityType Name="evento" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IdEvento"/>
+                </Key>
+                <Property Name="IdEvento" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Organizador  Evento" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IdOrgevento" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Organizador  Evento" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NombreEvento" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NombreSalon" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CalleSalon" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="NumeroSalon" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="CiudadSalon" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="FechaEvento" Type="Edm.DateTime" Nullable="false" Precision="7" sap:unicode="false" sap:label="Fecha" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="EstadoEvento" Type="Edm.String" Nullable="false" MaxLength="20" sap:unicode="false" sap:label="ESTADO" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="organizador" Relationship="ZGW_EVENTO_SRV.orgTOeve" FromRole="ToRole_orgTOeve" ToRole="FromRole_orgTOeve"/>
+                <NavigationProperty Name="invitadoSet" Relationship="ZGW_EVENTO_SRV.eveTOinv" FromRole="FromRole_eveTOinv" ToRole="ToRole_eveTOinv"/>
+            </EntityType>
+            <EntityType Name="invitado" sap:content-version="1">
+                <Key>
+                    <PropertyRef Name="IdInvitado"/>
+                </Key>
+                <Property Name="IdInvitado" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Organizador  Evento" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="IdEvento" Type="Edm.String" Nullable="false" MaxLength="3" sap:unicode="false" sap:label="Organizador  Evento" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Nombre" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Apellido" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Correo" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Telefono" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="Comentario" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <Property Name="Estado" Type="Edm.String" Nullable="false" MaxLength="50" sap:unicode="false" sap:label="ESTADO" sap:creatable="false" sap:updatable="false" sap:sortable="false" sap:filterable="false"/>
+                <NavigationProperty Name="evento" Relationship="ZGW_EVENTO_SRV.eveTOinv" FromRole="ToRole_eveTOinv" ToRole="FromRole_eveTOinv"/>
+            </EntityType>
+            <Association Name="orgTOeve" sap:content-version="1">
+                <End Type="ZGW_EVENTO_SRV.organizador" Multiplicity="1" Role="FromRole_orgTOeve"/>
+                <End Type="ZGW_EVENTO_SRV.evento" Multiplicity="*" Role="ToRole_orgTOeve"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_orgTOeve">
+                        <PropertyRef Name="IdOrgevento"/>
+                    </Principal>
+                    <Dependent Role="ToRole_orgTOeve">
+                        <PropertyRef Name="IdOrgevento"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="eveTOinv" sap:content-version="1">
+                <End Type="ZGW_EVENTO_SRV.evento" Multiplicity="1" Role="FromRole_eveTOinv"/>
+                <End Type="ZGW_EVENTO_SRV.invitado" Multiplicity="*" Role="ToRole_eveTOinv"/>
+                <ReferentialConstraint>
+                    <Principal Role="FromRole_eveTOinv">
+                        <PropertyRef Name="IdEvento"/>
+                    </Principal>
+                    <Dependent Role="ToRole_eveTOinv">
+                        <PropertyRef Name="IdEvento"/>
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="ZGW_EVENTO_SRV_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx">
+                <EntitySet Name="organizadorSet" EntityType="ZGW_EVENTO_SRV.organizador" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="eventoSet" EntityType="ZGW_EVENTO_SRV.evento" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <EntitySet Name="invitadoSet" EntityType="ZGW_EVENTO_SRV.invitado" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:pageable="false" sap:content-version="1"/>
+                <AssociationSet Name="eveTOinvSet" Association="ZGW_EVENTO_SRV.eveTOinv" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="eventoSet" Role="FromRole_eveTOinv"/>
+                    <End EntitySet="invitadoSet" Role="ToRole_eveTOinv"/>
+                </AssociationSet>
+                <AssociationSet Name="orgTOeveSet" Association="ZGW_EVENTO_SRV.orgTOeve" sap:creatable="false" sap:updatable="false" sap:deletable="false" sap:content-version="1">
+                    <End EntitySet="organizadorSet" Role="FromRole_orgTOeve"/>
+                    <End EntitySet="eventoSet" Role="ToRole_orgTOeve"/>
+                </AssociationSet>
+            </EntityContainer>
+            <atom:link rel="self" href="http://stks4hpil.eastus2.cloudapp.azure.com:8002/sap/opu/odata/sap/ZGW_EVENTO_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+            <atom:link rel="latest-version" href="http://stks4hpil.eastus2.cloudapp.azure.com:8002/sap/opu/odata/sap/ZGW_EVENTO_SRV/$metadata" xmlns:atom="http://www.w3.org/2005/Atom"/>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

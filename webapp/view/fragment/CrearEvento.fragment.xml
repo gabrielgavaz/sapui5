@@ -1,0 +1,51 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+   <Dialog id="dialogCrearEvento" title="Ingresar Datos">
+
+
+       <content>
+            <f:SimpleForm id="form" editable="true" layout="ResponsiveGridLayout">
+               <f:content>
+
+                    <Label text="Nombre evento" />
+                    <Input id="nombreEventoCreate" type="Text" />
+
+                    <Label text="nombre salon" />
+                    <Input id="nombreSalonCreate" type="Text" />
+
+                   
+                    <Label text="calle" />
+                    <Input id="calleSalonCreate" type="Text" />
+
+                    <Label text="altura" />
+                    <Input id="numeroSalonCreate" type="Number" />
+
+                    <Label text="Ciudad" />
+                    <Input id="ciudadSalonCreate" type="Text" />
+ 
+                    <Label text="Fecha del evento" labelFor="DP2"/>
+                            <DatePicker
+                              id="fechaEvento"
+                              value="{
+                                'path':'/valueDP2',
+                                'type':'sap.ui.model.type.Date',
+                                'formatOptions': {
+                                  'pattern': 'yyyy-MM-dd'
+                                }
+                              }"
+                              change="handleChange"
+                              class="sapUiSmallMarginBottom"/>                 
+
+
+                </f:content>
+            </f:SimpleForm>
+        </content>
+
+
+       <beginButton>
+            <Button text="Crear Evento" press="onCreateEvento" type="Success" />
+        </beginButton>
+       <endButton>
+            <Button text="Cancelar" press="onCloseDialog" type="Reject" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>

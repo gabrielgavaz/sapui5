@@ -1,0 +1,57 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form">
+   <Dialog id="dialogUpdateEvento" title="Modificar Datos">
+
+
+       <content>
+            <f:SimpleForm id="form" editable="true" layout="ResponsiveGridLayout">
+               <f:content>
+
+                    <Label text="Nombre evento" />
+                    <Input id="nombreEventoUpdate" type="Text" />
+
+                    <Label  text="nombre salon" />
+                    <Input id="nombreSalonUpdate" type="Text" />
+
+                   
+                    <Label  text="calle" />
+                    <Input id="calleSalonUpdate" type="Text" />
+
+                    <Label  text="altura" />
+                    <Input id="numeroSalonUpdate" type="Number" />
+
+                    <Label  text="Ciudad" />
+                    <Input id="ciudadSalonUpdate" type="Text" />
+ 
+                    <Label  text="Fecha del evento" labelFor="DP2"/>
+                            <DatePicker
+                              id="fechaEvento"
+                              value="{
+                                'path':'/valueDP2',
+                                'type':'sap.ui.model.type.Date',
+                                'formatOptions': {
+                                  'pattern': 'yyyy-MM-dd'
+                                }
+                              }"
+                              change="handleChange"
+                              class="sapUiSmallMarginBottom"/>
+
+                    <Select id="estadoEventoUpdate">
+                                    <core:Item  key="F" text="Finalizado"/>
+                                    <core:Item  key="P" text="Planificado"/>
+                                    <core:Item  key="C" text="Cancelado"/>
+                    </Select>           
+
+
+                </f:content>
+            </f:SimpleForm>
+        </content>
+
+
+       <beginButton>
+            <Button id="_IDGenButton12234" text="Editar Evento" press="onUpdateEvento" type="Success" />
+        </beginButton>
+       <endButton>
+            <Button id="_IDGenButton223423" text="Cancelar" press="onCloseDialogUpdate" type="Reject" />
+        </endButton>
+    </Dialog>
+</core:FragmentDefinition>
